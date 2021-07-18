@@ -1,0 +1,79 @@
+﻿<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+  <div class="card card0 border-0">
+    <div class="row d-flex">
+      <div class="col-lg-6">
+        <div class="card1 pb-5">
+          <div class="row"> <img src="https://www.bootstrapdash.com/demo/login-template-free-2/assets/images/logo.svg"
+              class="logo"> </div>
+          <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png"
+              class="image"> </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card2 card border-0 px-4 py-5">
+          <div class="row mb-4 px-3">
+            <h6 class="mb-0 mr-4 mt-2">Sign in with</h6>
+            <div class="facebook text-center mr-3">
+              <div class="fa fa-facebook"></div>
+            </div>
+            <div class="twitter text-center mr-3">
+              <div class="fa fa-twitter"></div>
+            </div>
+            <div class="linkedin text-center mr-3">
+              <div class="fa fa-linkedin"></div>
+            </div>
+          </div>
+          <div class="row px-3 mb-4">
+            <div class="line"></div> <small class="or text-center">Or</small>
+            <div class="line"></div>
+          </div>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" formControlName="firstName" placeholder="Please enter first name" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" formControlName="lastName" placeholder="Please enter last name" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+              <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" formControlName="username" placeholder="Please enter username" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" placeholder="Please enter password" formControlName="password" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row mb-3 px-3">
+                <button [disabled]="loading" class="btn btn-blue text-center">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  Register
+                </button>
+              </div>
+              <div class="row mb-4 px-3"> <small class="font-weight-bold">Already have an account? <a
+                    routerLink="../login" class="text-danger">Login</a> </small> </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
